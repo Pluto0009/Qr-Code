@@ -28,8 +28,15 @@ def erstelle_pixel_bild(pixel_daten, dateiname="output.png"):
     
     # Ein neues Bild im Modus 'L' (Luminance / Graustufen) erstellen
     # '1' für Schwarzweiß wäre auch möglich, 'L' ist oft kompatibler
-    bild = Image.new('L', (breite, hoehe))
-    
+    bild = Image.new('L', (breite+2, hoehe+2))
+
+    #alles weiß
+    for x in range(breite + 2):
+        for y in range(hoehe + 2):
+            bild.putpixel((x, y), 255)
+
+   
+
     
     for x in range(breite):
         for y in range(hoehe):
@@ -39,10 +46,14 @@ def erstelle_pixel_bild(pixel_daten, dateiname="output.png"):
             elif (pixel_daten[x][y] == 0):
                 farbe = 255
             else:
-                print("Arrrrrrrrrrr Fuckkkkkkkkkkkkkkkkkkkk !!!!!!!!!!!!!!!!!!!!        Bild konnte nicht erstellt werden, da ein pixel nicht 1 oder 0 ist")
+                print("Arrrrrrrrrrr Fuckkkkkkkkkkkkkkkkkkkk !!!!!!!!!!!!!!!!!!!!")
                 return False
             
-            bild.putpixel((x, y), farbe)
+            bild.putpixel((x+1, y+1), farbe)
+
+
+    
+
     
     # Das Bild speichern und anzeigen
     bild.save(dateiname)
@@ -57,7 +68,7 @@ for i in range(25):
     test_array[i][12] = 1 # Horizontale Linie
     test_array[12][i] = 1 # Vertikale Linie
 
-test_array[1][24] = 0,5
+test_array[24][0] = 0
 
 
 erstelle_pixel_bild(test_array)
