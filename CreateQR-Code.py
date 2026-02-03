@@ -4,7 +4,7 @@ import gpu
 rows, cols = 25, 25
 qr_code = [[0 for _ in range(cols)] for _ in range(rows)]
 
-def prepare_cook():
+def prepare_code():
     create_position_square(0,0)
     create_position_square(18,0)
     create_position_square(0,18)
@@ -20,6 +20,6 @@ def create_position_square(x_start_pos: int, y_start_pos: int):
         for i in range(3):
             qr_code[x_start_pos + 2 + i][y_start_pos + 2 + o] = 1
 
-prepare_cook()
+prepare_code()
 gpu.erstelle_pixel_bild(qr_code)
         
