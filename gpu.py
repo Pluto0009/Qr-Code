@@ -29,7 +29,14 @@ def erstelle_pixel_bild(pixel_daten, dateiname="output.png"):
     # Ein neues Bild im Modus 'L' (Luminance / Graustufen) erstellen
     # '1' für Schwarzweiß wäre auch möglich, 'L' ist oft kompatibler
     bild = Image.new('L', (breite+2, hoehe+2))
-    
+
+    #alles weiß
+    for x in range(breite + 2):
+        for y in range(hoehe + 2):
+            bild.putpixel((x, y), 255)
+
+   
+
     
     for x in range(breite):
         for y in range(hoehe):
@@ -45,13 +52,7 @@ def erstelle_pixel_bild(pixel_daten, dateiname="output.png"):
             bild.putpixel((x+1, y+1), farbe)
 
 
-    for x in range(breite + 2):
-        bild.putpixel((x, 0), farbe)
-        bild.putpixel((x, hoehe + 1), 255)
     
-    for y in range(hoehe + 2):
-        bild.putpixel((0, y), farbe)
-        bild.putpixel((breite + 1, y), 255)
 
     
     # Das Bild speichern und anzeigen
@@ -67,7 +68,7 @@ for i in range(25):
     test_array[i][12] = 1 # Horizontale Linie
     test_array[12][i] = 1 # Vertikale Linie
 
-test_array[24][0] = 1
+test_array[24][0] = 0
 
 
 erstelle_pixel_bild(test_array)
