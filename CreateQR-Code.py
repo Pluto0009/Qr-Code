@@ -4,6 +4,8 @@ qr_code = [[0 for _ in range(cols)] for _ in range(rows)]
 
 def prepare_code():
     create_position_square(0,0)
+    create_position_square(19,0)
+    create_position_square(0,-19)
 
 def create_position_square(x_start_pos: int, y_start_pos: int):
     for i in range(7):
