@@ -39,7 +39,7 @@ def erstelle_pixel_bild(pixel_daten, dateiname="output.png"):
             elif (pixel_daten[x][y] == 0):
                 farbe = 255
             else:
-                print("Arrrrrrrrrrr Fuckkkkkkkkkkkkkkkkkkkk !!!!!!!!!!!!!!!!!!!!        Bild konnte nicht erstellt werden, da ein pixel nicht 1 oder 0 ist")
+                print("Arrrrrrrrrrr Fuckkkkkkkkkkkkkkkkkkkk !!!!!!!!!!!!!!!!!!!!")
                 return False
             
             bild.putpixel((x, y), farbe)
