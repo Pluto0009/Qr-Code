@@ -1,3 +1,5 @@
+
+
 def link_to_binary(url):
     binary_string = ''  # Leer starten, ohne Leerzeichen
     for char in url:
