@@ -2,7 +2,7 @@
 rows, cols = 25, 25
 qr_code = [[0 for _ in range(cols)] for _ in range(rows)]
 
-def prepare_code():
+def prepare_cook():
     create_position_square(0,0)
     create_position_square(19,0)
     create_position_square(0,-19)
