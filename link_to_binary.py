@@ -7,5 +7,14 @@ def link_to_binary(url):
         binary_list.append(format(ord(char), '08b')) 
     return binary_list
 
+
+def link_to_binary_list(url):
+    binary_list = []
+    for char in url:
+        binary_char = format(ord(char), '08b') # Erzeugt z.B. "01100001"
+        for digit in binary_char:
+            binary_list.append(int(digit)) # Als Zahl (0) oder String ('0') speichern
+    return binary_list
+
 Dicklasssssss = link_to_binary("abc")
 print(Dicklasssssss)
