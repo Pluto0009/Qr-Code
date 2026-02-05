@@ -9,7 +9,7 @@ def prepare_code():
     create_position_square(0,18)
     create_alignment_pattern(16,16)
     create_timing_patterns()
-    qr_code[8][17] = 1
+    qr_code[8][17] = 1 # Setzt diesen random schwarzen Pixel der immer schwarz ist
 
 # Erstellt ein Positionsquare, welcher in den Ecken des QR-Codes platziert wird. Positionsquares dienen der Orientierung des Scanners und ermöglichen es ihm, den QR-Code korrekt zu lesen, unabhängig von seiner Ausrichtung.
 
