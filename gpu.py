@@ -57,12 +57,14 @@ def erstelle_pixel_bild(pixel_daten, dateiname="output.png"):
     
     # Das Bild speichern und anzeigen
     bild.save(dateiname)
-    bild.show()
+    #bild.show(dateiname)
     print(f"Bild wurde als {dateiname} gespeichert.")
     return True
 
 
 
+
+"""
 test_array = [[0 for _ in range(25)] for _ in range(25)]
 for i in range(25):
     test_array[i][12] = 1 # Horizontale Linie
@@ -72,3 +74,5 @@ test_array[24][0] = 0
 
 
 erstelle_pixel_bild(test_array)
+
+"""

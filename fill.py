@@ -1,6 +1,7 @@
 import Fillorder
 import link_to_binary
 import qrcodevariable
+import gpu
 
 
 
@@ -11,16 +12,28 @@ def fillNormal(link: str):
     if len(inputbinar) > 34*8:      # check ob es passt
         return False
     
+    
+    
     for inputbytePos in range(4, len(inputbinar)):
 
 
         for i, teil_liste in enumerate(qrFillorder):      # äußerer Index
-            for j, pos in enumerate(teil_liste):   # innerer Index
+            for j, pos in enumerate(teil_liste):          # innerer Index
                 if pos == inputbytePos:
                     qrcodevariable.qr_code[i][j] = inputbinar[inputbytePos]
-                    break
-            break
-        
+                    print(inputbytePos)
+                    
+
+    return True
+
+
+
+"""
+print(fillNormal("Abc"))
+print(qrcodevariable.qr_code)
+gpu.erstelle_pixel_bild(qrcodevariable.qr_code)
+
+        """
 
 
 
