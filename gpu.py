@@ -62,8 +62,6 @@ def erstelle_pixel_bild(pixel_daten, dateiname="output.png"):
     return True
 
 
-
-
 """
 test_array = [[0 for _ in range(25)] for _ in range(25)]
 for i in range(25):

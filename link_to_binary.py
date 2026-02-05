@@ -16,5 +16,7 @@ def link_to_binary_list(url):
             binary_list.append(int(digit)) # Als Zahl (0) oder String ('0') speichern
     return binary_list
 
+"""
 Dicklasssssss = link_to_binary("abc")
 print(Dicklasssssss)
+"""
