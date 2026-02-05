@@ -15,12 +15,12 @@ def fillNormal(link: str):
     
     
     
-    for inputbytePos in range(4, len(inputbinar)):
+    for inputbytePos in range(0, len(inputbinar)):
 
 
         for i, teil_liste in enumerate(qrFillorder):      # äußerer Index
             for j, pos in enumerate(teil_liste):          # innerer Index
-                if pos == inputbytePos:
+                if pos == inputbytePos + 13:
                     qr_code[i][j] = inputbinar[inputbytePos]
                     print(inputbytePos)
                     

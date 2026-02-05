@@ -45,6 +45,8 @@ def create_timing_patterns():
 
 # Testabschnitt
 
+"""
 prepare_code()
 gpu.erstelle_pixel_bild(qr_code)
+"""
         

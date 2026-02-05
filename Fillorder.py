@@ -11,7 +11,7 @@ def generate_qr_list():
     # 1. Finder Patterns (die großen Quadrate + Margin)
     for r in range(size):
         for c in range(size):
-            if (r < 9 and c < 9) or (r < 9 and c > 16) or (r > 15 and c < 9):
+            if (r < 8 and c < 9) or (r < 8 and c > 16) or (r > 15 and c < 9):
                 mask[r][c] = True
     
     # 2. Alignment Pattern (das kleine Quadrat unten rechts)
@@ -59,7 +59,6 @@ def generate_qr_list():
 
     return qrflip
 
-
 """
-print(generate_qr_list()[24][23])
+print(generate_qr_list())
 """
