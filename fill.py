@@ -28,12 +28,12 @@ def fillNormal(link: str):
 
 
 
-
+"""
 print(fillNormal("Abc"))
 print(qrcodevariable.qr_code)
 gpu.erstelle_pixel_bild(qrcodevariable.qr_code)
 
-        
+        """
 
 
 
