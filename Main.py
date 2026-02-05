@@ -14,4 +14,4 @@ def GenerateQRCode(link: str):
 
 
 
-GenerateQRCode("ABCDEFG")
+GenerateQRCode("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567")
