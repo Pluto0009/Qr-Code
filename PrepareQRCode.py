@@ -1,9 +1,6 @@
 
 import gpu
-
-rows, cols = 25, 25
-qr_code = [[0 for _ in range(cols)] for _ in range(rows)]
-
+from qrcodevariable import qr_code
 # Bereitet den blanken QR-Code vor, indem die Positionsquares, das Alignmentpattern und die Timingpatterns erstellt werden.
 
 def prepare_code():
