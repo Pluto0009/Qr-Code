@@ -1,12 +1,11 @@
 
-
 def link_to_binary(url):
-    binary_string = ''  # Leer starten, ohne Leerzeichen
+    binary_list = []  # Wir starten mit einer leeren Liste
     for char in url:
-        # Wir formatieren den Buchstaben und hängen ihn direkt hinten an
-        binary_string += format(ord(char), '08b') 
-    return binary_string
+        # Wir formatieren den Buchstaben als 8-Bit Binärzahl
+        # und fügen ihn als einzelnes Element der Liste hinzu
+        binary_list.append(format(ord(char), '08b')) 
+    return binary_list
 
-
-
-print(link_to_binary("https://www.google.de/"))
+Dicklasssssss = link_to_binary("abc")
+print(Dicklasssssss)
