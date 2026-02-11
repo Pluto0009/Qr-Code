@@ -7,7 +7,7 @@ fill_order = None
 
 def fill_data_size_and_type():
     fill_data_type()
-    fill_data_type()
+    fill_data_size()
 
 # Setzt innerhalb der ersten 4 Module den Datentyp auf "Bit"
 
