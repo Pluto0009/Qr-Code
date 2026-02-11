@@ -1,9 +1,6 @@
 
 import qrcodevariable
-import Fillorder
-
 bit_array = []
-fill_order = None
 
 def fill_data_size_and_type():
     fill_data_type()
@@ -16,11 +13,10 @@ def fill_data_type():
 
 def fill_data_size():
     bit_array = [0,0,0,0,0,0,0,0]
-    fill_order = Fillorder.generate_qr_list()
     bit_array = qrcodevariable.link_length.to_bytes(8)
     
     for printed_bit_index in range(8):
-        for col_index, column in enumerate(fill_order):
+        for col_index, column in enumerate(qrcodevariable.fill_order_grid):
             for row_index, pos in enumerate(column):
                 if pos == printed_bit_index:
                     qrcodevariable.qr_code[col_index][row_index] = bit_array[printed_bit_index]
