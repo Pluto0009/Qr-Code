@@ -11,7 +11,7 @@ def apply_masking():
         apply_mask(i)
         calculate_penalty_score(i)
     for i in range(8):
-        if max(mask_penalty_scores) == mask_penalty_scores[i]:
+        if min(mask_penalty_scores) == mask_penalty_scores[i]:
             qrcodevariable.qr_code = masked_qr_codes[i]
         
     
