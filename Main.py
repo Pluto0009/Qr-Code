@@ -6,8 +6,11 @@ from fill import dataANDKorrekturbits
 from gpu import erstelle_pixel_bild
 from datasizeandtype import fill_data_size_and_type
 from Masking import apply_masking
+from linkshortner import shorten_url
+
 
 def GenerateQRCode(link: str):
+    link = shorten_url(link)
     qrcodevariable.link_length = len(link)
     qrcodevariable.fill_order_grid = Fillorder.generate_qr_list()
     prepare_code()
