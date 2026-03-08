@@ -5,6 +5,7 @@ from PrepareQRCode import prepare_code
 from fill import fillNormal
 from gpu import erstelle_pixel_bild
 from datasizeandtype import fill_data_size_and_type
+from Masking import apply_masking
 
 def GenerateQRCode(link: str):
     qrcodevariable.link_length = len(link)
@@ -12,6 +13,7 @@ def GenerateQRCode(link: str):
     prepare_code()
     fillNormal(link)
     fill_data_size_and_type()
+    apply_masking()
     erstelle_pixel_bild(qrcodevariable.qr_code)
 
 GenerateQRCode("www.youtube.com/watch?v=dQw4w9WgXcQ")
