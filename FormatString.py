@@ -17,8 +17,8 @@ def generate_format_string():
     format_string[0] = 0
     format_string[1] = 1
     for i in range(3):
-        format_string[i+2] = (qrcodevariable.used_mask >> (2 - i)) & 1
-        # format_string[i+2] = (qrcodevariable.used_mask >> (i)) & 1
+        # format_string[i+2] = (qrcodevariable.used_mask >> (2 - i)) & 1
+        format_string[i+2] = (qrcodevariable.used_mask >> (i)) & 1
     # format_string = [(qrcodevariable.used_mask >> i) & 1 for i in reversed(range(2,qrcodevariable.used_mask.bit_length()+2))]
     # format_string[2] = qrcodevariable.used_mask.to_bytes(3)[0]
     # format_string[3] = qrcodevariable.used_mask.to_bytes(3)[1]
@@ -97,17 +97,21 @@ def binary_division(_error_correction, _generator_poly):
     return _error_correction
     
 def paste_formate_string(_final_format_string):
-    for i in range(5):
-        qrcodevariable.qr_code[i][8]  = _final_format_string[i]
-    qrcodevariable.qr_code[7][8] = final_format_string[6]
-    for i in range(1):
-        qrcodevariable.qr_code[8][8 - i] = final_format_string[7 + i]
-    for i in range(5):
-        qrcodevariable.qr_code[8][5 - i]  = _final_format_string[8 + i]
+    # Später löschen
+    # for i in range(15):
+    #     _final_format_string[i] = 0
+
     for i in range(6):
-        qrcodevariable.qr_code[8][20 - i]  = _final_format_string[i]
+        qrcodevariable.qr_code[i][8]  = _final_format_string[i]
+    qrcodevariable.qr_code[7][8] = _final_format_string[6]
+    for i in range(2):
+        qrcodevariable.qr_code[8][8 - i] = _final_format_string[7 + i]
+    for i in range(6):
+        qrcodevariable.qr_code[8][5 - i]  = _final_format_string[9 + i]
+    for i in range(7):
+        qrcodevariable.qr_code[8][24 - i]  = _final_format_string[i]
     for i in range(7,14):
-        qrcodevariable.qr_code[i + 6][8] = _final_format_string[i]
+        qrcodevariable.qr_code[i + 11][8] = _final_format_string[i]
     
     
     

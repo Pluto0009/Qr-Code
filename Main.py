@@ -11,16 +11,16 @@ from linkshortner import shorten_url
 
 
 def GenerateQRCode(link: str):
-    # link = shorten_url(link)
+    link = shorten_url(link)
     qrcodevariable.link_length = len(link)
     qrcodevariable.fill_order_grid = Fillorder.generate_qr_list()
     qrcodevariable.masked_qr_codes = []
     # for i in range(8):
-    #     for col_index, column in enumerate(qrcodevariable.masked_qr_codes[i]):
-    #         for row_index, pos in enumerate(column):
-    #             break
+    #     qrcodevariable.masked_qr_codes.append(None)
     # for i in range(8):
-    #     qrcodevariable.masked_qr_codes[i] = [[0 for _ in range(qrcodevariable.cols)] for _ in range(qrcodevariable.rows)]
+    #     for col_index in range(qrcodevariable.cols):
+    #         qrcodevariable.masked_qr_codes[i].append(None)
+    qrcodevariable.masked_qr_codes = [[[0 for _ in range(qrcodevariable.cols)] for _ in range(qrcodevariable.rows)] for _ in range(8)]
     prepare_code()
     dataANDKorrekturbits(link)
     fill_data_size_and_type()

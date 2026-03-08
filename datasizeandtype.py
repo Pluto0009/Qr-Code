@@ -12,10 +12,12 @@ def fill_data_size_and_type():
 def fill_data_type():
     qrcodevariable.qr_code[23][24] = 1
 
+# Setzt innerhalb der nächsten 8 Module die datengröße
+
 def fill_data_size():
     for i in range(8):
-        # bit_array.append((qrcodevariable.link_length >> (i)) & 1)
-        bit_array.append((qrcodevariable.link_length >> (8 - i)) & 1)
+        bit_array.append((qrcodevariable.link_length >> (i)) & 1)
+        # bit_array.append((qrcodevariable.link_length >> (8 - i)) & 1)
     
     for printed_bit_index in range(8):
         for col_index, column in enumerate(qrcodevariable.fill_order_grid):
