@@ -22,5 +22,5 @@ def fill_data_size():
     for printed_bit_index in range(8):
         for col_index, column in enumerate(qrcodevariable.fill_order_grid):
             for row_index, pos in enumerate(column):
-                if pos == printed_bit_index + 1:
+                if pos == printed_bit_index + 5:
                     qrcodevariable.qr_code[col_index][row_index] = bit_array[printed_bit_index]

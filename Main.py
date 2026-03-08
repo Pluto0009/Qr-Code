@@ -24,6 +24,8 @@ def GenerateQRCode(link: str):
     prepare_code()
     dataANDKorrekturbits(link)
     fill_data_size_and_type()
+    #erstelle_pixel_bild(qrcodevariable.qr_code)
+
     apply_masking()
     generate_format_string()
     erstelle_pixel_bild(qrcodevariable.qr_code)

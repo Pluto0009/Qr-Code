@@ -79,9 +79,9 @@ def dataANDKorrekturbits(link: str):
 
 
 
-#print(dataANDKorrekturbits("Abc"))
-#print(qr_code)
-#erstelle_pixel_bild(qr_code)
+# print(dataANDKorrekturbits("Abc"))
+# print(qr_code)
+# erstelle_pixel_bild(qr_code)
 
 
 
