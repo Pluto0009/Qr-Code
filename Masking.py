@@ -1,5 +1,7 @@
 import qrcodevariable
 import math
+import gpu
+
 
 masked_qr_codes = []
 mask_penalty_scores = []
@@ -26,6 +28,12 @@ def apply_masking():
                     qrcodevariable.qr_code[col_index][row_index] = masked_qr_codes[i][col_index][row_index]
                     
             qrcodevariable.used_mask = i
+
+
+
+    for i in range(7):
+        gpu.erstelle_pixel_bild(masked_qr_codes[i], f"mask_{i}.png")
+
         
 
 def apply_mask(number: int):
