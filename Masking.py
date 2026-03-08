@@ -10,13 +10,20 @@ def apply_masking():
     for i in range(7): 
         masked_qr_codes.append(None)
         mask_penalty_scores.append(0)
-        masked_qr_codes[i] = qrcodevariable.qr_code
+        cols,rows = 25,25
+        masked_qr_codes[i] = [[0 for _ in range(cols)] for _ in range(rows)]
+        for col_index, column in enumerate(masked_qr_codes[i]):
+                for row_index, module in enumerate(column):
+                    masked_qr_codes[i][col_index][row_index] = qrcodevariable.qr_code[col_index][row_index]
         mask_penalty_scores[i] = 0
         apply_mask(i)
         calculate_penalty_score(i)
     for i in range(7):
         if min(mask_penalty_scores) == mask_penalty_scores[i]:
-            qrcodevariable.qr_code = masked_qr_codes[i]
+            for col_index, column in enumerate(masked_qr_codes[i]):
+                for row_index, module in enumerate(column):
+                    qrcodevariable.qr_code[col_index][row_index] = masked_qr_codes[i][col_index][row_index]
+                    
             qrcodevariable.used_mask = i
         
 
