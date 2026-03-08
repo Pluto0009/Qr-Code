@@ -2,6 +2,8 @@
 rows, cols = 25, 25
 qr_code = [[0 for _ in range(cols)] for _ in range(rows)]
 
+masked_qr_codes = None
+
 link_length = 0
 fill_order_grid = None
 used_mask = -1

@@ -19,6 +19,7 @@ def apply_masking():
         apply_mask(i)
         calculate_penalty_score(i)
     for i in range(7):
+        # qrcodevariable.masked_qr_codes[i] = masked_qr_codes[i]
         if min(mask_penalty_scores) == mask_penalty_scores[i]:
             for col_index, column in enumerate(masked_qr_codes[i]):
                 for row_index, module in enumerate(column):
@@ -37,21 +38,29 @@ def apply_mask(number: int):
                     mask_result = -1
                     match number:
                         case 0:
-                            mask_result = math.fmod(row_index + col_index, 2)
+                            mask_result = (row_index + col_index) % 2
+#                            mask_result = math.fmod(row_index + col_index, 2)
                         case 1:
-                            mask_result = math.fmod(row_index, 2)
+                            mask_result = row_index % 2
+#                            mask_result = math.fmod(row_index, 2)
                         case 2:
-                            mask_result = math.fmod(col_index, 3)
+                            mask_result = col_index % 3
+                            # mask_result = math.fmod(col_index, 3)
                         case 3:
-                            mask_result  = math.fmod(row_index + col_index, 3)
+                             mask_result  = (row_index + col_index) % 3
+                            # mask_result  = math.fmod(row_index + col_index, 3)
                         case 4:
-                            mask_result = math.fmod(math.floor(row_index / 2) + math.floor(col_index / 3), 2)
+                            mask_result = (math.floor(row_index / 2) + math.floor(col_index / 3)) % 2
+                            # mask_result = math.fmod(math.floor(row_index / 2) + math.floor(col_index / 3), 2)
                         case 5:
-                            mask_result  = math.fmod(row_index * col_index, 2) + math.fmod(row_index * col_index, 3)
+                            mask_result  = (row_index * col_index) % 2 + (row_index * col_index) % 3
+                            # mask_result  = math.fmod(row_index * col_index, 2) + math.fmod(row_index * col_index, 3)
                         case 6:
-                            mask_result = math.fmod(math.fmod(row_index * col_index, 2) + math.fmod(row_index * col_index, 3), 2)
+                            mask_result = ((row_index * col_index) % 2 + (row_index * col_index) % 3) % 2
+                            # mask_result = math.fmod(math.fmod(row_index * col_index, 2) + math.fmod(row_index * col_index, 3), 2)
                         case 7:
-                            mask_result = math.fmod(math.fmod(row_index + col_index, 2) + math.fmod(row_index * col_index, 3), 2)
+                            mask_result = ((row_index + col_index) % 2 + (row_index * col_index) % 3) % 2
+                            # mask_result = math.fmod(math.fmod(row_index + col_index, 2) + math.fmod(row_index * col_index, 3), 2)
                     
                     if mask_result == 0:
                         if masked_qr_codes[number][col_index][row_index] == 0:
