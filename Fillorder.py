@@ -60,4 +60,3 @@ def generate_qr_list():
     return qrflip
 
 
-print(generate_qr_list())

@@ -6,4 +6,4 @@ masked_qr_codes = None
 
 link_length = 0
 fill_order_grid = None
-used_mask = -1
+used_mask = 1
