@@ -9,7 +9,7 @@ mask_penalty_scores = []
 def apply_masking():
     global masked_qr_codes
     global mask_penalty_scores
-    for i in range(7): 
+    for i in range(8): 
         masked_qr_codes.append(None)
         mask_penalty_scores.append(0)
         cols,rows = 25,25
@@ -20,7 +20,7 @@ def apply_masking():
         mask_penalty_scores[i] = 0
         apply_mask(i)
         calculate_penalty_score(i)
-    for i in range(7):
+    for i in range(8):
         qrcodevariable.masked_qr_codes[i] = masked_qr_codes[i]
         if min(mask_penalty_scores) == mask_penalty_scores[i]:
             for col_index, column in enumerate(masked_qr_codes[i]):
