@@ -111,7 +111,7 @@ def paste_formate_string(_final_format_string):
     for i in range(7):
         qrcodevariable.qr_code[8][24 - i]  = _final_format_string[i]
     for i in range(7,14):
-        qrcodevariable.qr_code[i + 11][8] = _final_format_string[i]
+        qrcodevariable.qr_code[i + 10][8] = _final_format_string[i]
     
     
     
