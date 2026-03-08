@@ -5,18 +5,24 @@ masked_qr_codes = []
 mask_penalty_scores = []
 
 def apply_masking():
-    for i in range(8):
+    global masked_qr_codes
+    global mask_penalty_scores
+    for i in range(7): 
+        masked_qr_codes.append(None)
+        mask_penalty_scores.append(0)
         masked_qr_codes[i] = qrcodevariable.qr_code
         mask_penalty_scores[i] = 0
         apply_mask(i)
         calculate_penalty_score(i)
-    for i in range(8):
+    for i in range(7):
         if min(mask_penalty_scores) == mask_penalty_scores[i]:
             qrcodevariable.qr_code = masked_qr_codes[i]
+            qrcodevariable.used_mask = i
         
-    
 
 def apply_mask(number: int):
+    global masked_qr_codes
+    global mask_penalty_scores
     
     for col_index, column in enumerate(qrcodevariable.fill_order_grid):
             for row_index, pos in enumerate(column):
@@ -55,6 +61,8 @@ def calculate_penalty_score(number: int):
 def calculate_penalty_score_condition_1(number: int):
     color_streak = 0
     swapped_masked_qr_code = None
+    global masked_qr_codes
+    global mask_penalty_scores
     
     for col_index, column in enumerate(masked_qr_codes[number]):
             for row_index, module in enumerate(column):
@@ -71,6 +79,7 @@ def calculate_penalty_score_condition_1(number: int):
                         color_streak += 1
                     else:
                         color_streak = 1
+                        
                 
                 if math.fabs(color_streak) == 5:
                     mask_penalty_scores[number] += 3
@@ -105,6 +114,8 @@ def calculate_penalty_score_condition_1(number: int):
                     mask_penalty_scores += 1
                     
 def calculate_penalty_score_condition_2(number: int):
+    global masked_qr_codes
+    global mask_penalty_scores
     for col_index, column in enumerate(masked_qr_codes[number]):
             for row_index, module in enumerate(column):
                 if row_index != 25 or col_index != 25:
@@ -114,6 +125,8 @@ def calculate_penalty_score_condition_2(number: int):
                                 mask_penalty_scores[number] += 3
 
 def calculate_penalty_score_condition_3(number: int):
+    global masked_qr_codes
+    global mask_penalty_scores
     pattern = []
     for i in range(3):
         pattern[i] = 0
@@ -147,6 +160,8 @@ def calculate_penalty_score_condition_3(number: int):
                         mask_penalty_scores[number] += 40
                 
 def calculate_penalty_score_condition_4(number: int):
+          global masked_qr_codes
+          global mask_penalty_scores
           previous_multiple = 0
           next_multiple = 0
           module_amount = 0

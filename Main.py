@@ -6,6 +6,7 @@ from fill import dataANDKorrekturbits
 from gpu import erstelle_pixel_bild
 from datasizeandtype import fill_data_size_and_type
 from Masking import apply_masking
+from FormatString import generate_format_string
 from linkshortner import shorten_url
 
 
@@ -17,6 +18,7 @@ def GenerateQRCode(link: str):
     dataANDKorrekturbits(link)
     fill_data_size_and_type()
     apply_masking()
+    generate_format_string()
     erstelle_pixel_bild(qrcodevariable.qr_code)
 
 GenerateQRCode("www.youtube.com")
