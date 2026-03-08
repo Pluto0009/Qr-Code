@@ -31,8 +31,8 @@ def apply_masking():
 
 
 
-    for i in range(7):
-        gpu.erstelle_pixel_bild(masked_qr_codes[i], f"mask_{i}.png")
+    # for i in range(7):
+    #     gpu.erstelle_pixel_bild(masked_qr_codes[i], f"mask_{i}.png")
 
         
 
