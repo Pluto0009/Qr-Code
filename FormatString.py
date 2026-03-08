@@ -10,8 +10,10 @@ def generate_format_string():
     global generator_poly
     global error_correction
     global final_format_string
-    for i in range(4):
-        format_string[i] = -1
+    for i in range(11):
+        generator_poly.append(-1)
+    for i in range(5):
+        format_string.append(-1)
     format_string[0] = 0
     format_string[1] = 1
     format_string[2] = qrcodevariable.used_mask.to_bytes(3)[0]
@@ -28,17 +30,22 @@ def generate_format_string():
     generator_poly[8] = 1
     generator_poly[9] = 1
     generator_poly[10] = 1
-    error_correction = format_string
-    while len(format_string) > 10:
+    for i in range(len(format_string)):
+        error_correction.append(format_string[i])
+    for i in range(10):
+        error_correction.append(0)
+    while len(error_correction) > 10:
         error_correction = binary_division(error_correction, generator_poly)
     if len(error_correction) < 10:
-        for i in range(9 - len(error_correction)):
+        for i in range(10 - len(error_correction)):
             error_correction.insert(0,0)
     for i in range(len(format_string)):
         final_format_string.append(format_string[i])
     for i in range(len(error_correction)):
         final_format_string.append(error_correction[i])
     final_mask = []
+    for i in range(15):
+        final_mask.append(-1)
     final_mask[0] = 1
     final_mask[1] = 0
     final_mask[2] = 1
@@ -54,7 +61,8 @@ def generate_format_string():
     final_mask[12] = 0
     final_mask[13] = 1
     final_mask[14] = 0
-    final_format_string = final_format_string ^ final_mask
+    for i in range(len(final_format_string)):
+        final_format_string[i] = final_format_string[i] ^ final_mask[i]
     paste_formate_string(final_format_string)
         
         
@@ -66,9 +74,10 @@ def binary_division(_error_correction, _generator_poly):
             _error_correction.pop(i)
         else:
             break
-    for i in range(len(_error_correction) - len(_generator_poly) - 1):
-        generator_poly.append(0)
-    _error_correction = _generator_poly ^ _error_correction
+    for i in range(len(_error_correction) - len(_generator_poly)):
+        _generator_poly.append(0)
+    for i in range(len(_error_correction)):
+        _error_correction[i] = _generator_poly[i] ^ _error_correction[i]
     for i in range(len(_error_correction)):
         if _error_correction[i] == 0:
             _error_correction.pop(i)

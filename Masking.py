@@ -60,7 +60,8 @@ def calculate_penalty_score(number: int):
 
 def calculate_penalty_score_condition_1(number: int):
     color_streak = 0
-    swapped_masked_qr_code = None
+    rows,cols = 25,25
+    swapped_masked_qr_code = [[0 for _ in range(cols)] for _ in range(rows)]
     global masked_qr_codes
     global mask_penalty_scores
     
@@ -84,7 +85,7 @@ def calculate_penalty_score_condition_1(number: int):
                 if math.fabs(color_streak) == 5:
                     mask_penalty_scores[number] += 3
                 elif(math.fabs(color_streak) > 5):
-                    mask_penalty_scores += 1
+                    mask_penalty_scores[number] += 1
     
     color_streak = 0
     
@@ -111,14 +112,14 @@ def calculate_penalty_score_condition_1(number: int):
                 if math.fabs(color_streak) == 5:
                     mask_penalty_scores[number] += 3
                 elif(math.fabs(color_streak) > 5):
-                    mask_penalty_scores += 1
+                    mask_penalty_scores[number] += 1
                     
 def calculate_penalty_score_condition_2(number: int):
     global masked_qr_codes
     global mask_penalty_scores
     for col_index, column in enumerate(masked_qr_codes[number]):
             for row_index, module in enumerate(column):
-                if row_index != 25 or col_index != 25:
+                if row_index < 24 and col_index < 24:
                     if masked_qr_codes[number][col_index][row_index] == masked_qr_codes[number][col_index + 1][row_index]:
                         if masked_qr_codes[number][col_index + 1][row_index] == masked_qr_codes[number][col_index + 1][row_index + 1]:
                             if masked_qr_codes[number][col_index + 1][row_index + 1] == masked_qr_codes[number][col_index][row_index + 1]:
@@ -128,14 +129,14 @@ def calculate_penalty_score_condition_3(number: int):
     global masked_qr_codes
     global mask_penalty_scores
     pattern = []
+    for i in range(4):
+        pattern.append(0)
+    pattern.append(1)
+    pattern.append(0)
     for i in range(3):
-        pattern[i] = 0
-    pattern[4] = 1
-    pattern[5] = 0
-    for i in range(6,8):
-        pattern[i] = 1
-    pattern[9] = 0
-    pattern[10] = 1
+        pattern.append(1)
+    pattern.append(0)
+    pattern.append(1)
     for col_index, column in enumerate(masked_qr_codes[number]):
             if col_index > 10:
                 break
@@ -144,8 +145,8 @@ def calculate_penalty_score_condition_3(number: int):
                     break
 
                 pattern_found = []
-                for i in range(3):
-                    pattern_found[i] = True
+                for i in range(4):
+                    pattern_found.append(True)
                 for i in range(10):
                     if masked_qr_codes[number][col_index + i][row_index] != pattern[i]:
                         pattern_found[0] = False
