@@ -15,13 +15,13 @@ def intTObits(number: int):
 
 def Error_correction_bits_erstellen(daten: list[int]):
 
-    if len(daten) % 8 != 0:
+    if (len(daten) % 8) != 0:
         print("Fuck")
         return False
 
 
     intList = []
-    for i in range(len(daten)/8):
+    for i in range(len(daten)//8):
         intList.append(bitsTOint(daten[i*8:(i+1)*8]))
 
 
