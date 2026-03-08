@@ -14,4 +14,8 @@ def GenerateQRCode(link: str):
     fill_data_size_and_type()
     erstelle_pixel_bild(qrcodevariable.qr_code)
 
-GenerateQRCode("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567")
+GenerateQRCode("www.youtube.com/watch?v=dQw4w9WgXcQ")
+
+
+
+# error corektion L

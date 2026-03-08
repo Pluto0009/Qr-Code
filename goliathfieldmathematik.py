@@ -163,4 +163,4 @@ def mulitplizierenGF(a: list[int], b:list[int]):
 # print(mulitplizierenGF([0,0,0,1,0,0,0,0], [0,0,0,1,0,0,0,0])) # Erwartet: [0,0,1,1,0,1,1,1] (16 * 16 = 55)
 # print(mulitplizierenGF([0,0,0,0,0,0,0,0], [1,1,1,1,1,1,1,1])) # Erwartet: [0,0,0,0,0,0,0,0] (0 * 255 = 0)                    
             
-
+#print(mulitplizierenGF([1,0,1,1,0,1,0,0],[0,1,0,1,1,0,0,1]))
