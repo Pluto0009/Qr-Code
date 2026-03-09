@@ -8,7 +8,7 @@ final_format_string = []
 def generate_format_string():
     global format_string, generator_poly, error_correction, final_format_string
     
-    # Reset globals to allow multiple calls
+    # Reset globals
     format_string = []
     error_correction = []
     generator_poly = []
@@ -20,10 +20,10 @@ def generate_format_string():
     format_string[3] = (qrcodevariable.used_mask >> 1) & 1
     format_string[4] = (qrcodevariable.used_mask >> 0) & 1
     
-    # FIXED: Correct QR format info generator polynomial = 10100110111
+    # FIXED: Verwendung von der richtigen generator polynomial = 10100110111
     generator_poly = [1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1]
     
-    # Compute remainder: format_string * x^10 div generator
+
     error_correction = format_string[:] + [0] * 10
     
     while len(error_correction) > 10:
@@ -34,7 +34,7 @@ def generate_format_string():
     
     final_format_string = format_string[:] + error_correction[:]
     
-    # XOR with mask 101010000010010
+    # XOR mit mask 101010000010010
     final_mask = [1,0,1,0,1,0,0,0,0,0,1,0,0,1,0]
     for i in range(15):
         final_format_string[i] ^= final_mask[i]
@@ -42,18 +42,15 @@ def generate_format_string():
     paste_formate_string(final_format_string)
 
 def binary_division(_error_correction, _generator_poly):
-    # Work on copies to avoid mutation
     ec = _error_correction[:]
     
-    # Strip leading zeros
     while ec and ec[0] == 0:
         ec.pop(0)
     
     if len(ec) <= 10:
         return ec
     
-    # Align generator to same length
-    gen = _generator_poly[:]  # FIXED: use fresh copy, don't mutate original
+    gen = _generator_poly[:]  # FIXED: verwenden einer neuen liste sodass das orginal nicht verändert wird
     while len(gen) < len(ec):
         gen.append(0)
     
@@ -61,7 +58,6 @@ def binary_division(_error_correction, _generator_poly):
     for i in range(len(ec)):
         ec[i] ^= gen[i]
     
-    # Strip leading zeros
     while ec and ec[0] == 0:
         ec.pop(0)
     
