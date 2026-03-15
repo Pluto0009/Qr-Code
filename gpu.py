@@ -1,5 +1,7 @@
 from PIL import Image
 
+# Von Leopold
+
 def erstelle_pixel_bild(pixel_daten, dateiname="output.png"):
     """
     Erstellt eine Bilddatei basierend auf einer Matrix und öffnet diese.

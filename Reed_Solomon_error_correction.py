@@ -1,7 +1,7 @@
 import goliathfieldmathematik as gf
 import math
 
-
+# Von Leopold
 
 def bitsTOint(bits: list[int]):
     bits_reversed = bits[::-1]

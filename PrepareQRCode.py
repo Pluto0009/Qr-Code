@@ -1,6 +1,8 @@
 import gpu
 import qrcodevariable
 
+# Von Yannick
+
 def prepare_code():
     create_position_square(0,0)
     create_position_square(18,0)

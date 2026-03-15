@@ -4,6 +4,8 @@ from link_to_binary import link_to_binary_list
 from gpu import erstelle_pixel_bild
 from Reed_Solomon_error_correction import Error_correction_bits_erstellen
 
+# Von Leopold
+
 def fillNormal(link: str):
     inputbinar = []
     # Modus: Byte mode = 0100

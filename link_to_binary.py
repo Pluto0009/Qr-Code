@@ -1,4 +1,6 @@
 
+# Von Leopold
+
 def link_to_binary(url):
     binary_list = []  # Wir starten mit einer leeren Liste
     for char in url:

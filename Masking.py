@@ -2,6 +2,7 @@ import qrcodevariable
 import math
 import gpu
 
+# Von Yannick
 
 masked_qr_codes = []
 mask_penalty_scores = []

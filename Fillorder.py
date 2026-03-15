@@ -1,3 +1,6 @@
+
+# Von Leopold
+
 def generate_qr_list():
     size = 25
 

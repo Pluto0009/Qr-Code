@@ -1,5 +1,7 @@
 import qrcodevariable
 
+# Von Yannick
+
 format_string = []
 error_correction = []
 generator_poly = []
